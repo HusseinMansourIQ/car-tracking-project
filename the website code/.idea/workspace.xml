@@ -10,17 +10,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e297db4-fc16-4c04-a936-65f1025601de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2e297db4-fc16-4c04-a936-65f1025601de" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1wzZHv0cVzYjEv3ikd3RqR7acBh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -31,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../hospital web/code/hospital" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -55,8 +52,7 @@
       <updated>1629463292276</updated>
       <workItem from="1629463293348" duration="1519000" />
       <workItem from="1629477880956" duration="3809000" />
-      <workItem from="1629618230617" duration="962000" />
-      <workItem from="1629710021895" duration="594000" />
+      <workItem from="1629551250338" duration="623000" />
     </task>
     <servers />
   </component>
