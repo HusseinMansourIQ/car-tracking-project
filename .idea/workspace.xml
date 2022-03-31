@@ -11,8 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e297db4-fc16-4c04-a936-65f1025601de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../covid-centers-api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -57,6 +59,7 @@
       <workItem from="1629477880956" duration="3809000" />
       <workItem from="1629618230617" duration="962000" />
       <workItem from="1629710021895" duration="594000" />
+      <workItem from="1644470754582" duration="1767000" />
     </task>
     <servers />
   </component>
@@ -76,25 +79,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="617" y="202" key="FileChooserDialogImpl" timestamp="1629478041518">
+    <state x="617" y="202" key="FileChooserDialogImpl" timestamp="1644473876502">
       <screen x="0" y="0" width="1676" height="896" />
     </state>
-    <state x="617" y="202" key="FileChooserDialogImpl/0.0.1676.896@0.0.1676.896" timestamp="1629478041518" />
-    <state width="1654" height="234" key="GridCell.Tab.0.bottom" timestamp="1629481717930">
-      <screen x="0" y="0" width="1676" height="896" />
-    </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.bottom/0.0.1676.896@0.0.1676.896" timestamp="1629481717930" />
-    <state width="1654" height="234" key="GridCell.Tab.0.center" timestamp="1629481717930">
-      <screen x="0" y="0" width="1676" height="896" />
-    </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.center/0.0.1676.896@0.0.1676.896" timestamp="1629481717930" />
-    <state width="1654" height="234" key="GridCell.Tab.0.left" timestamp="1629481717930">
-      <screen x="0" y="0" width="1676" height="896" />
-    </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.left/0.0.1676.896@0.0.1676.896" timestamp="1629481717930" />
-    <state width="1654" height="234" key="GridCell.Tab.0.right" timestamp="1629481717930">
-      <screen x="0" y="0" width="1676" height="896" />
-    </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.right/0.0.1676.896@0.0.1676.896" timestamp="1629481717930" />
+    <state x="617" y="202" key="FileChooserDialogImpl/0.0.1676.896@0.0.1676.896" timestamp="1644473876502" />
   </component>
 </project>

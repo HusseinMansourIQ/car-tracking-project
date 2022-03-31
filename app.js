@@ -46,7 +46,7 @@ const users = require('./routes/user-routes')
 app.use('/users', users)
 // listen to port 3000
 
-app.listen(8000, ()=> {
+app.listen(process.env.PORT || 3000, ()=> {
 
     console.log(' app is wokring on port 3000')
 })
