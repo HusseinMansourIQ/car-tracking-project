@@ -1,27 +1,15 @@
 const mongoose = require('mongoose')
-const eventSchema = new mongoose.Schema({
-    title: {
+const locSchema = new mongoose.Schema({
+    lan: {
         type: String,
         required: true
     },
-    description: {
+    lon: {
         type: String,
         required: true
-    },
-    location: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        required: true
-    },
-    created_at: {
-        type: Date,
-        required: true
-    },
+    }
 })
 
-let Event = mongoose.model('Event', eventSchema, 'events')
+let Loc = mongoose.model('loc', locSchema, 'loc')
 
-module.exports = Event
+module.exports = Loc
