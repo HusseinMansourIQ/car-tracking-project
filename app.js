@@ -31,7 +31,12 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.get('/getloc', (req,res)=> {
 
+    loc.find({},(err,loc)=>{
+        res.json(loc)
+    })
+})
 app.get('/getloc/lan/:lan/lon/:lon', (req,res)=> {
 
     var lan = req.params.lan.toString()
