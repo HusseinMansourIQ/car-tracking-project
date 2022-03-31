@@ -30,10 +30,24 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-app.get('/', (req,res)=> {
+app.get('/getloc/lan/:lan/lon/:lon', (req,res)=> {
 
-   res.redirect('/map')
-    
+    var lan = req.params.lan.toString()
+    var lon = req.params.lon.toString()
+    let newitm = new loc({
+        lan: lan,
+        lon: lon
+
+    })
+    newitm.save((err) => {
+        if (!err) {
+            console.log('itm added ')
+        } else {
+            console.log(err)
+        }
+
+    })
+
 })
 
 // bring events routes
