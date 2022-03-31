@@ -6,7 +6,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
 const passportSetup = require('./config/passport-setup')
-const loc = require ('./models/Event')
+const loc = require ('./models/Evnet.js')
 
 // bring ejs template
 
