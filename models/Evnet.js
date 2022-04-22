@@ -7,6 +7,19 @@ const locSchema = new mongoose.Schema({
     lon: {
         type: String,
         required: true
+    },
+    lanb: {
+        type: String,
+        required: true
+    },
+    lonb: {
+        type: String,
+        required: true
+    },
+    count: {
+    },
+    date:{
+        type:Date
     }
 })
 

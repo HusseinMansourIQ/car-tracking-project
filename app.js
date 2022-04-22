@@ -37,25 +37,75 @@ app.get('/getloc', (req,res)=> {
         res.json(loc)
     })
 })
-app.get('/getloc/lan/:lan/lon/:lon', (req,res)=> {
+app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
 
-    var lan = req.params.lan.toString()
-    var lon = req.params.lon.toString()
-    let newitm = new loc({
-        lan: lan,
-        lon: lon
+   //var count= loc.find({}, (err,doc)=> {
+    loc.aggregate([{"$count":"lan"}],(err,cnt)=>{
 
-    })
-    newitm.save((err) => {
-        if (!err) {
-            console.log('itm added ')
-        } else {
-            console.log(err)
+        console.log(cnt[0])
+        if (cnt[0]){
+        var  count = cnt[0].lan.toString()
+        console.log(count)
+        var lan = req.params.lan.toString()
+        var lon = req.params.lon.toString()
+        var lanb = req.params.lanb.toString()
+        var lonb = req.params.lonb.toString()
+        let newitm = new loc({
+            lan: lan,
+            lon: lon,
+            lanb: lanb,
+            lonb: lonb,
+            count:count,
+            date:Date.now()
+
+        })
+            newitm.save((err) => {
+                if (!err) {
+                    console.log('itm added ')
+                } else {
+                    console.log(err)
+                }
+
+            })
+        }else {
+            var lan = req.params.lan.toString()
+            var lon = req.params.lon.toString()
+            var lanb = req.params.lanb.toString()
+            var lonb = req.params.lonb.toString()
+            let newitm = new loc({
+                lan: lan,
+                lon: lon,
+                lanb: lanb,
+                lonb: lonb,
+                count:0,
+                date:Date.now()
+
+            })
+            newitm.save((err) => {
+                if (!err) {
+                    console.log('itm added ')
+                } else {
+                    console.log(err)
+                }
+
+            })
         }
 
+
     })
 
+    })
+app.get('/deleteall',(res,req)=>{
+
+    loc.remove({}, function(err, result){
+        // handle the error if any
+        if (err) throw err;
+        console.log("Collection is deleted! "+result);
+    });
+
+
 })
+
 
 // bring events routes
 
