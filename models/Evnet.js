@@ -1,20 +1,13 @@
 const mongoose = require('mongoose')
 const locSchema = new mongoose.Schema({
-    lan: {
-        type: String,
+    loc: {
+        type: Array,
         required: true
     },
-    lon: {
-        type: String,
-        required: true
-    },
+
     lanb: {
-        type: String,
-        required: true
     },
     lonb: {
-        type: String,
-        required: true
     },
     count: {
     },

@@ -51,8 +51,7 @@ app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
         var lanb = req.params.lanb.toString()
         var lonb = req.params.lonb.toString()
         let newitm = new loc({
-            lan: lan,
-            lon: lon,
+            loc: [lan,lon],
             lanb: lanb,
             lonb: lonb,
             count:count,
@@ -68,13 +67,12 @@ app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
 
             })
         }else {
-            var lan = req.params.lan.toString()
-            var lon = req.params.lon.toString()
-            var lanb = req.params.lanb.toString()
-            var lonb = req.params.lonb.toString()
+            var lan = req.params.lan
+            var lon = req.params.lon
+            var lanb = req.params.lanb
+            var lonb = req.params.lonb
             let newitm = new loc({
-                lan: lan,
-                lon: lon,
+                loc: [lan,lon],
                 lanb: lanb,
                 lonb: lonb,
                 count:0,

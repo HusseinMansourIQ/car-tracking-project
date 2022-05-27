@@ -3,6 +3,8 @@ const router = express.Router()
 const Event = require('../models/Evnet')
 const { check, validationResult } = require('express-validator/check')
 const moment = require('moment');
+const loc = require ('../models/Evnet')
+
 moment().format();
 
 // middleware to check if user is loogged in
@@ -12,9 +14,11 @@ isAuthenticated = (req,res,next) => {
     res.redirect('/users/login')
 }
 // route to home events
-router.get('/', (req,res)=> {   
+router.get('/', (req,res)=> {
+    loc.find({},(err,loc)=>{
+        res.render('map_view/map',{loc:loc})
+    })
 
-         res.render('map_view/map')
 
 })
 
