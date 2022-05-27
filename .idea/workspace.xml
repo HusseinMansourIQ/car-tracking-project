@@ -11,16 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e297db4-fc16-4c04-a936-65f1025601de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/asset/map-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/map_view/m.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/map_view/mapbox-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/map_view/t.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Evnet.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Evnet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/map_view/m.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/map_view/m.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/map_view/map.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/map_view/map.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/map_view" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/store_locator_api-master/store_locator_api-master" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -73,7 +68,9 @@
       <workItem from="1629618230617" duration="962000" />
       <workItem from="1629710021895" duration="594000" />
       <workItem from="1644470754582" duration="1767000" />
-      <workItem from="1653632624753" duration="12769000" />
+      <workItem from="1653632624753" duration="12983000" />
+      <workItem from="1653653339697" duration="2054000" />
+      <workItem from="1653662352060" duration="3835000" />
     </task>
     <servers />
   </component>
@@ -97,22 +94,26 @@
       <screen x="0" y="0" width="1676" height="896" />
     </state>
     <state x="615" y="249" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1676.896@0.0.1676.896" timestamp="1653634876872" />
-    <state width="1654" height="234" key="GridCell.Tab.0.bottom" timestamp="1653652514372">
+    <state x="617" y="202" key="FileChooserDialogImpl" timestamp="1653663062113">
       <screen x="0" y="0" width="1676" height="896" />
     </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.bottom/0.0.1676.896@0.0.1676.896" timestamp="1653652514372" />
-    <state width="1654" height="234" key="GridCell.Tab.0.center" timestamp="1653652514371">
+    <state x="617" y="202" key="FileChooserDialogImpl/0.0.1676.896@0.0.1676.896" timestamp="1653663062113" />
+    <state width="1654" height="234" key="GridCell.Tab.0.bottom" timestamp="1653664318442">
       <screen x="0" y="0" width="1676" height="896" />
     </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.center/0.0.1676.896@0.0.1676.896" timestamp="1653652514371" />
-    <state width="1654" height="234" key="GridCell.Tab.0.left" timestamp="1653652514371">
+    <state width="1654" height="234" key="GridCell.Tab.0.bottom/0.0.1676.896@0.0.1676.896" timestamp="1653664318442" />
+    <state width="1654" height="234" key="GridCell.Tab.0.center" timestamp="1653664318442">
       <screen x="0" y="0" width="1676" height="896" />
     </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.left/0.0.1676.896@0.0.1676.896" timestamp="1653652514371" />
-    <state width="1654" height="234" key="GridCell.Tab.0.right" timestamp="1653652514372">
+    <state width="1654" height="234" key="GridCell.Tab.0.center/0.0.1676.896@0.0.1676.896" timestamp="1653664318442" />
+    <state width="1654" height="234" key="GridCell.Tab.0.left" timestamp="1653664318442">
       <screen x="0" y="0" width="1676" height="896" />
     </state>
-    <state width="1654" height="234" key="GridCell.Tab.0.right/0.0.1676.896@0.0.1676.896" timestamp="1653652514372" />
+    <state width="1654" height="234" key="GridCell.Tab.0.left/0.0.1676.896@0.0.1676.896" timestamp="1653664318442" />
+    <state width="1654" height="234" key="GridCell.Tab.0.right" timestamp="1653664318442">
+      <screen x="0" y="0" width="1676" height="896" />
+    </state>
+    <state width="1654" height="234" key="GridCell.Tab.0.right/0.0.1676.896@0.0.1676.896" timestamp="1653664318442" />
     <state x="500" y="188" width="672" height="678" key="search.everywhere.popup" timestamp="1653648062033">
       <screen x="0" y="0" width="1676" height="896" />
     </state>

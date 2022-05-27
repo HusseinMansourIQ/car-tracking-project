@@ -1,106 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Demo: Add custom markers in Mapbox GL JS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+            integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+            crossorigin="anonymous"
+    />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+    <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
             rel="stylesheet"
     />
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-    <link
-            href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
-            rel="stylesheet"
-    />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-
-        }
-        .marker {
-            background-image: url('./mapbox-icon.png');
-            background-size: cover;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .mapboxgl-popup {
-            max-width: 200px;
-        }
-        .mapboxgl-popup-content {
-            text-align: center;
-            font-family: 'Open Sans', sans-serif;
-        }
-    </style>
+    <title>Store Locator</title>
 </head>
 <body>
-<img src="./mapbox-icon.png">
-<div id="map"></div>
+<div class="container my-3">
+    <h1 class="display-4 text-center">
+        <i class="fas fa-map-marked mr-4"></i>Store Locator
+    </h1>
+    <a href="add.html" class="btn btn-success mb-4">Add Store</a>
+    <div
+            id="map"
+            style="width: 100%; height: 500px;border-radius: 5px;"
+    ></div>
+</div>
 
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVzc2VpbmRoYWZlciIsImEiOiJja3M3aTV6Mmowa3Q2MnZwc3Eyemllbmx6In0.zACREUIP5z-IcyB2GzwXxw';
-
-    const geojson = {
-        'type': 'FeatureCollection',
-        'features': [
-            {
-                'type': 'Feature',
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [-77.032, 38.913]
-                },
-                'properties': {
-                    'title': 'Mapbox',
-                    'description': 'Washington, D.C.'
-                }
-            },
-            {
-                'type': 'Feature',
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [-122.414, 37.776]
-                },
-                'properties': {
-                    'title': 'Mapbox',
-                    'description': 'San Francisco, California'
-                }
-            }
-        ]
-    };
-
+    mapboxgl.accessToken =
+        'pk.eyJ1IjoiaHVzc2VpbmRoYWZlciIsImEiOiJja3M3aTV6Mmowa3Q2MnZwc3Eyemllbmx6In0.zACREUIP5z-IcyB2GzwXxw';
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [-96, 37.8],
-        zoom: 3
+        style: 'mapbox://styles/mapbox/streets-v11',
+        zoom: 9,
+        center: [44.235525987433775,32.72721262243513 ]
     });
 
-    // add markers to map
-    for (const feature of geojson.features) {
-        // create a HTML element for each feature
-        const el = document.createElement('div');
-        el.className = 'marker';
+    // Fetch stores from API
+    async function getStores() {
+        const res = await fetch('http://localhost:3000/getloc');
+        const data = await res.json();
+        console.log(data+"wwrrrryyyy")
 
-        // make a marker for each feature and add it to the map
-        new mapboxgl.Marker(el)
-            .setLngLat(feature.geometry.coordinates)
-            .setPopup(
-                new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML(
-                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-                    )
-            )
-            .addTo(map);
+        const stores = data.map(store => {
+            return {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [
+                        store.loc[0],
+                        store.loc[1]
+                    ]
+                },
+                properties: {
+                    storeId: store.id,
+                    icon: 'shop'
+                }
+            };
+        });
+
+        loadMap(stores);
     }
+
+    // Load map with stores
+    function loadMap(stores) {
+        map.on('load', function() {
+            map.addLayer({
+                id: 'points',
+                type: 'symbol',
+                source: {
+                    type: 'geojson',
+                    data: {
+                        type: 'FeatureCollection',
+                        features: stores
+                    }
+                },
+                layout: {
+                    'icon-image': '{icon}-15',
+                    'icon-size': 1.5,
+                    'text-field': '{storeId}',
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.9],
+                    'text-anchor': 'top'
+                }
+            });
+        });
+    }
+
+    getStores();
 </script>
 </body>
 </html>

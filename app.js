@@ -7,7 +7,8 @@ const flash = require('connect-flash')
 const passport = require('passport')
 const passportSetup = require('./config/passport-setup')
 const loc = require ('./models/Evnet.js')
-
+let cors = require("cors");
+app.use(cors());
 // bring ejs template
 
 app.set('view engine', 'ejs')
