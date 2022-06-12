@@ -38,15 +38,11 @@ app.get('/getloc', (req,res)=> {
         res.json(loc)
     })
 })
-app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
+app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', async(req,res)=> {
 
    //var count= loc.find({}, (err,doc)=> {
-    loc.aggregate([{"$count":"lan"}],(err,cnt)=>{
-
-        console.log(cnt[0])
-        if (cnt[0]){
-        var  count = cnt[0].lan.toString()
-        console.log(count)
+    var cnt = await loc.countDocuments({},(err,cnt)=>{ })
+        console.log(cnt)
         var lan = req.params.lan.toString()
         var lon = req.params.lon.toString()
         var lanb = req.params.lanb.toString()
@@ -55,7 +51,7 @@ app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
             loc: [lan,lon],
             lanb: lanb,
             lonb: lonb,
-            count:count,
+            count:parseInt(cnt) +1,
             date:Date.now()
 
         })
@@ -67,34 +63,10 @@ app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', (req,res)=> {
                 }
 
             })
-        }else {
-            var lan = req.params.lan
-            var lon = req.params.lon
-            var lanb = req.params.lanb
-            var lonb = req.params.lonb
-            let newitm = new loc({
-                loc: [lan,lon],
-                lanb: lanb,
-                lonb: lonb,
-                count:0,
-                date:Date.now()
-
-            })
-            newitm.save((err) => {
-                if (!err) {
-                    console.log('itm added ')
-                } else {
-                    console.log(err)
-                }
-
-            })
-        }
-
+    
 
     })
-
-    })
-app.get('/deleteall',(res,req)=>{
+app.get('/deleteall',(req,res)=>{
 
     loc.remove({}, function(err, result){
         // handle the error if any
@@ -103,6 +75,13 @@ app.get('/deleteall',(res,req)=>{
     });
 
 
+})
+app.post('/getlocD',(req,res)=>{
+    
+    loc.aggregate([{"$match":{"$expr":{"$gte":["$date",{"$dateFromString":{"dateString":req.body.start}}]},"$expr":{"$lt":["$date",{"$dateFromString":{"dateString":req.body.end}}]}}}
+],(err,loc)=>{
+    res.render('map_view/map',{loc:loc})
+})
 })
 
 
