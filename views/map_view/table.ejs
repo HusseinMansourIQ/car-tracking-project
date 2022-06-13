@@ -1,23 +1,66 @@
 
-<table class="table mydatatable table-hover " style="margin-top: 20px;">
+<%- include('../partials/header') -%>
+<script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<div class="container">
+  
+    <div class="row mt-3">
+<div class="col md-12">
+    <%- include('../partials/flashMessages') -%>
+</div>      
+    
+    </div>
 
-    <tbody>
-    <tr>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">sq</td>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">hv gps lan</td>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">hv gps lon</td>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">lanb</td>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">lonb </td>
-        <td style="font-size: 16px;color: rgb(14, 12, 119);">date</td>
+    <input class="form-control" id="gfg" type="text"
+           placeholder="Search here">
 
-    </tr>
-    <% data.forEach((data)=> {%>
-        <tr>
-            <td style="font-size: 15px"><%=data.count%></td>
-            <td style="font-size: 15px"><%=data.loc[0]%></td>
-            <td style="font-size: 15px"><%=data.loc[1]%></td>
-            <td style="font-size: 15px"><%=data.locb[0]%></td>
-            <td style="font-size: 15px"><%=data.locb[1]%></td>
-            <td style="font-size: 10px"><%=data.date%></td>
-        </tr>
-        <%})%>
+    <table class="table mydatatable table-hover " style="margin-top: 20px;">
+
+            
+                <tbody id="geeks">
+                <tr>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">sq</td>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">HV_GPS_lat</td>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">HV_GPS_lon</td>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">HV_IMPROVED_lat</td>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">HV_IMPROVED_lon </td>
+                    <td style="font-size: 16px;color: rgb(14, 12, 119);">date</td>
+                </tr>
+                <% data.forEach((data)=> {%>
+                    <tr>
+                        <td style="font-size: 15px"><%=data.count%></td>
+                        <td style="font-size: 15px"><%=data.loc[0]%></td>
+                        <td style="font-size: 15px"><%=data.loc[1]%></td>
+                        <td style="font-size: 15px"><%=data.locb[0]%></td>
+                        <td style="font-size: 15px"><%=data.locb[1]%></td>
+                        <td style="font-size: 10px"><%=data.date%></td>
+                    </tr>
+                    <%})%>
+                </tbody>
+                </table>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $("#gfg").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#geeks tr").filter(function() {
+                    $(this).toggle($(this).text()
+                        .toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    
+        
+
+
+      </ul>
+    </nav>
+  </div>
+</div>
+</div>
+
+
+<%- include('../partials/footer') -%>
