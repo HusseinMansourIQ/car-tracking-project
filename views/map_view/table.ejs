@@ -1,0 +1,23 @@
+
+<table class="table mydatatable table-hover " style="margin-top: 20px;">
+
+    <tbody>
+    <tr>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">sq</td>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">hv gps lan</td>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">hv gps lon</td>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">lanb</td>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">lonb </td>
+        <td style="font-size: 16px;color: rgb(14, 12, 119);">date</td>
+
+    </tr>
+    <% data.forEach((data)=> {%>
+        <tr>
+            <td style="font-size: 15px"><%=data.count%></td>
+            <td style="font-size: 15px"><%=data.loc[0]%></td>
+            <td style="font-size: 15px"><%=data.loc[1]%></td>
+            <td style="font-size: 15px"><%=data.locb[0]%></td>
+            <td style="font-size: 15px"><%=data.locb[1]%></td>
+            <td style="font-size: 10px"><%=data.date%></td>
+        </tr>
+        <%})%>

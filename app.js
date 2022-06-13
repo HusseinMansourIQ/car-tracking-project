@@ -32,10 +32,17 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.get('/getloc', (req,res)=> {
+app.get('/getlocTable', (req,res)=> {
 
-    loc.find({},(err,loc)=>{
-        res.json(loc)
+    loc.find({},(err,data)=>{
+        res.render('map_view/table',{data:data})
+    })
+})
+
+app.get('/getlocAPI', (req,res)=> {
+
+    loc.find({},(err,data)=>{
+        res.json(date)
     })
 })
 app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', async(req,res)=> {
@@ -49,8 +56,7 @@ app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', async(req,res)=> {
         var lonb = req.params.lonb.toString()
         let newitm = new loc({
             loc: [lan,lon],
-            lanb: lanb,
-            lonb: lonb,
+            locb: [lanb,lonb],
             count:parseInt(cnt) +1,
             date:Date.now()
 
