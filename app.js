@@ -39,10 +39,10 @@ app.get('/getlocTable', (req,res)=> {
     })
 })
 
-app.get('/getlocAPI', (req,res)=> {
+app.get('/getloc', (req,res)=> {
 
     loc.find({},(err,data)=>{
-        res.json(date)
+        res.json(data)
     })
 })
 app.get('/getloc/lan/:lan/lon/:lon/lanb/:lanb/lonb/:lonb', async(req,res)=> {
