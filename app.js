@@ -89,7 +89,30 @@ app.post('/getlocD',(req,res)=>{
     res.render('map_view/map',{loc:loc})
 })
 })
+// test route 
+app.get('/getloct/lan/:lan', async(req,res)=> {
 
+    //var count= loc.find({}, (err,doc)=> {
+     var cnt = await loc.countDocuments({},(err,cnt)=>{ })
+         console.log(cnt)
+         var lan = req.params.lan.toString()
+        
+         let newitm = new loc({
+             loc: [lan,"test"],
+             date:Date.now()
+ 
+         })
+             newitm.save((err) => {
+                 if (!err) {
+                     console.log('itm added ')
+                 } else {
+                     console.log(err)
+                 }
+ 
+             })
+     
+ 
+     })
 
 // bring events routes
 
