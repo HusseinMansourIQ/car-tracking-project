@@ -111,9 +111,83 @@ app.get('/getloct/lan/:lan', async(req,res)=> {
  
              })
      
+     })
+     //test rout 2
+     app.get('/getloct/lan/:lan/lon/:lon', async(req,res)=> {
+
+        //var count= loc.find({}, (err,doc)=> {
+         var cnt = await loc.countDocuments({},(err,cnt)=>{ })
+             console.log(cnt)
+             var lan = req.params.lan.toString()
+             var lon = req.params.lon.toString()
+             let newitm = new loc({
+                 loc: [lan,lon],
+                 date:Date.now()
+     
+             })
+                 newitm.save((err) => {
+                     if (!err) {
+                         console.log('itm added ')
+                     } else {
+                         console.log(err)
+                     }
+     
+                 })
+         
+         })
+// test 2 with status respons
+
+         app.get('/getloct/lan/:lan/lon/:lon', async(req,res)=> {
+            //var count= loc.find({}, (err,doc)=> {
+             var cnt = await loc.countDocuments({},(err,cnt)=>{ })
+                 console.log(cnt)
+                 var lan = req.params.lan.toString()
+                 var lon = req.params.lon.toString()
+                 let newitm = new loc({
+                     loc: [lan,lon],
+                     date:Date.now()
+         
+                 })
+                     newitm.save((err) => {
+                         if (!err) {
+                             console.log('itm added ')
+                         } else {
+                             console.log(err)
+                         }
+                         res.status(200).send("this is status ")
+                     })
+             
+             })
+
+
+//test 3 smaller params name 
+app.get('/g/a/:a/b/:b/c/:c/d/:d', async(req,res)=> {
+
+    //var count= loc.find({}, (err,doc)=> {
+     var cnt = await loc.countDocuments({},(err,cnt)=>{ })
+         console.log(cnt)
+         var lan = req.params.a.toString()
+         var lon = req.params.b.toString()
+         var lanb = req.params.c.toString()
+         var lonb = req.params.d.toString()
+         let newitm = new loc({
+             loc: [lan,lon],
+             locb: [lanb,lonb],
+             count:parseInt(cnt) +1,
+             date:Date.now()
+ 
+         })
+             newitm.save((err) => {
+                 if (!err) {
+                     console.log('itm added ')
+                 } else {
+                     console.log(err)
+                 }
+ 
+             })
+     
  
      })
-
 // bring events routes
 
 const map = require('./routes/main')
