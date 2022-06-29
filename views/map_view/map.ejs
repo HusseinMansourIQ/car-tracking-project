@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -21,20 +23,44 @@
             href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
             rel="stylesheet"
     />
-    <title>Store Locator</title>
+    <title>Vehicles Locator</title>
 </head>
 <body>
 <div class="container my-3">
     <h1 class="display-4 text-center">
-        <i class="fas fa-map-marked mr-4"></i>Store Locator
+        <img src="/css/v.png" style="max-width: 12%;" > Vehicles Tracking System       <img src="/css/b.png" style="max-width: 129%;">
     </h1>
-    <a href="add.html" class="btn btn-success mb-4">Add Store</a>
+    <div>
+        <form action="/getlocD" method="post">
+    <input type="date" id="start" name="start" class="form-control" style="width: 30%;margin-bottom:10px ;">
+    <input type="date" id="end" name="end" class="form-control" style="width: 30%;margin-bottom:10px ;">
+
+    <button type="submit" class="btn btn-success mb-4">Get Location</button>
+</form>
+</div>
     <div
             id="map"
             style="width: 100%; height: 500px;border-radius: 5px;"
     ></div>
 </div>
 
+<script>
+    // post date 
+    // canceld 
+    function postDate(){
+    console.log(document.getElementById('start').value + "thisss is axios")
+var start
+   axios.post('/getlocD', {
+  start: document.getElementById('start').value,
+  end:document.getElementById('end').value
+  
+        })
+.catch(function (error) {
+ console.log(error);
+      });
+
+  }
+</script>
 <script>
     mapboxgl.accessToken =
         'pk.eyJ1IjoiaHVzc2VpbmRoYWZlciIsImEiOiJja3M3aTV6Mmowa3Q2MnZwc3Eyemllbmx6In0.zACREUIP5z-IcyB2GzwXxw';
@@ -63,7 +89,7 @@
                 },
                 properties: {
                     storeId: store.id,
-                    icon: 'shop'
+                    icon: 'car'
                 }
             };
         });
@@ -98,5 +124,6 @@
 
     getStores();
 </script>
+
 </body>
 </html>

@@ -5,10 +5,11 @@ const locSchema = new mongoose.Schema({
         required: true
     },
 
-    lanb: {
+    locb: {
+        type: Array,
+        required: true
     },
-    lonb: {
-    },
+    
     count: {
     },
     date:{

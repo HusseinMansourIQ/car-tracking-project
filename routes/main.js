@@ -22,5 +22,14 @@ router.get('/', (req,res)=> {
 
 })
 
+router.get('/mapb', (req,res)=> {
+    loc.find({},(err,loc)=>{
+        res.render('map_view/mapb',{loc:loc})
+    })
+
+
+})
+
+
 
 module.exports = router 
